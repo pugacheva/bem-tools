@@ -1,5 +1,5 @@
 var assert = require('chai').assert,
-    DEPS = require('../lib/techs/deps.js.js'),
+    DEPS = require(process.env.COVER? '../lib-cov/lib/techs/deps.js.js' : '../lib/techs/deps.js.js'),
     Deps = DEPS.Deps,
     DepsItem = DEPS.DepsItem;
 
@@ -150,26 +150,6 @@ describe('Deps', function() {
                 ],
                 { '': { '': [ { block: 'b0' }, { block: 'b1' }, { block: 'b3' } ] } }
             ));
-
-        });
-
-    });
-
-    describe('serialize:', function() {
-
-        describe('empty deps serialize to {}', function() {
-
-            var empty = {};
-
-            it('empty deps object: new Deps()', function() {
-                assert.deepEqual(new Deps().serialize(), empty);
-            });
-
-            it('empty object: {}', assertDepsParse({}, empty));
-
-            it('empty array: []', assertDepsParse([], empty));
-
-            it('undefined', assertDepsParse(undefined, empty));
 
         });
 

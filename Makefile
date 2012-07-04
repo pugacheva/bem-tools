@@ -1,3 +1,18 @@
+.PHONY: mocha
+mocha:
+	node_modules/.bin/mocha
+
+.PHONY: cov-js
+cov-js:
+	-rm -rf lib-cov
+	node_modules/coverjs/bin/coverjs --recursive --output lib-cov lib/*
+
+.PHONY: test-cov-js
+test-cov-js: cov-js mocha
+	COVER=1 node_modules/.bin/mocha --reporter html-covjs > coverage.html
+	@echo
+	@echo Open ./coverage.html file in your browser
+
 .PHONY: test
 test:
 	-rm -rf tests/level4

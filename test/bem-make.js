@@ -6,8 +6,8 @@ var assert = require('assert'),
     _ = require('underscore'),
     QFS = require('q-fs'),
 
-    BEMUTIL = require('../lib/util'),
-    BEM = require('../lib/coa').api,
+    BEMUTIL = require(process.env.COVER? '../lib-cov/lib/util' : '../lib/util'),
+    BEM = require(process.env.COVER? '../lib-cov/lib/coa' : '../lib/coa').api,
 
     projectPath = PATH.resolve('./test/data/make/project'),
     referencePath = PATH.resolve('./test/data/make/reference-result'),
