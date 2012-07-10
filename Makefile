@@ -9,7 +9,7 @@ cov-js:
 
 .PHONY: test-cov-js
 test-cov-js: cov-js mocha
-	COVER=1 node_modules/.bin/mocha --reporter html-covjs > coverage.html
+	COVER=1 node_modules/.bin/mocha --reporter mocha-coverjs > coverage.html
 	@echo
 	@echo Open ./coverage.html file in your browser
 

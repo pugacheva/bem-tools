@@ -47,7 +47,8 @@
     "uglify-js": "~1.3.0"
   },
   "devDependencies": {
-    "mocha": "git://github.com/afelix/mocha.git",
+    "mocha": "*",
+    "mocha-coverjs": "*", 
     "chai": "~1.0.3",
     "coverjs": "*"
   },
