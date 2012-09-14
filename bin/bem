@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/node --trace
 
 // Do not limit stack trace
 Error.stackTraceLimit = Infinity;
