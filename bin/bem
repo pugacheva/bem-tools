@@ -1,6 +1,11 @@
-#!/usr/bin/strace /home/scff/local/bin/node
+#!/home/scff/local/bin/node
 
 // Do not limit stack trace
 Error.stackTraceLimit = Infinity;
+
+process.on('SIGUSR2', function() {
+    console.log(process._getActiveHandles()); 
+    console.log(process._getActiveRequests());
+});
 
 require('../lib/coa').run();
