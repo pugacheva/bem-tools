@@ -5,7 +5,9 @@ Error.stackTraceLimit = Infinity;
 
 process.on('SIGUSR2', function() {
     console.log(process._getActiveHandles()); 
-    console.log(process._getActiveRequests());
+    console.log(process._getActiveRequests().map(function(r) {
+        return r.oncomplete.toString();
+    });
 });
 
 require('../lib/coa').run();
